@@ -1,10 +1,9 @@
-
-
+//1.шифр Цезаря
 function cesar(str, shift, action){
   
     let alf = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
     let mass = "";
-    if(action == "encode"){
+    if(action == "encode"){ 
         for(let i = 0; i<str.length;i++){
             let x = 0;
             while(str[i]!=alf[x]){
@@ -51,11 +50,9 @@ function cesar(str, shift, action){
     console.log(mass);
 }
 
+//cesar("абвг", 3, "encode"); /* - вызов функции*/
 
-//cesar("абвг", 3, "encode");
-
-
-
+//2.шифр Атбаш 
 function atbash(){
     let inputid = document.getElementById('atbashin').value;
     let alf = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
@@ -75,9 +72,10 @@ function atbash(){
     let vvod = document.getElementById('div');
     console.log(inputid);
     vvod.innerHTML=mass;
-}
+} 
 
-//atbash("яюэьы");
+//atbash("яюэьы"); /*вызов функции Атбаша */
+//3. Шифр Полибия
 function polib(text,code){
     var mass = [["а","б","в","г","д","е"],
                 ["ж","з","и","й","к","л"],
@@ -86,8 +84,6 @@ function polib(text,code){
                 ["ш","щ","ъ","ы","ь","э"],
                 ["ю","я","$","$","$","$"]
             ];  
-            
-    
     let textnew = '';
     let schet = 1;
     if(code == 'code'){
@@ -114,11 +110,8 @@ function polib(text,code){
                             textnew += ' ';
                         }
                     }
-
                 }
             }
-
-
         }
         console.log(textnew);
     }
@@ -141,15 +134,11 @@ function polib(text,code){
             i++;
         }
         console.log(textnew);
-
     }
 }
 
-//polib("абвгд","code");      ////Полибий..........
-
-
-
-
+//polib("абвгд","code");  /*Вызов функции Полибия.*/
+//4. шифр Тритемия
 function tritem(text,code){
     let alf = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
     //let text = "курсел";
@@ -186,8 +175,8 @@ function tritem(text,code){
 
 
 }
-//tritem('ктообж','code'); /////Тритемий.................
-
+//tritem('ктообж','code'); /*Вызов Тритемия*/
+//5. Шифр Белазо
 function belazo(text, key, code){
     let alf = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
     //let key = "кот";
@@ -212,7 +201,6 @@ function belazo(text, key, code){
             //console.log(((x + w+1)-1),z);
             //console.log(alf[z]);
             textnew += alf[z];
-            
         }
         console.log(textnew);
     }   
@@ -231,18 +219,14 @@ function belazo(text, key, code){
             //console.log(((x - w)),z);
             x++;
             y++;
-            
             //console.log(alf[z]);
             textnew += alf[z];
-            
         }
         console.log(textnew);
-
     }
 }
-
-
-//belazo('ыяусту', 'снег', 'decode'); ///Белазо.......
+//belazo('ыяусту', 'снег', 'decode'); /*Вызов функции Белазо*/
+//6. Шифр Виженера
 
 function veginer(text,key,code){
     let alf = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
@@ -301,10 +285,10 @@ function veginer(text,key,code){
     }
 
 }
-//veginer('абгез','а','decode');
+//veginer('абгез','а','decode'); /*вызов функции Виженера */
 //обгез
 
-////////////////////////////////////////////////////////////////Матричный шифр///////////////////////////////////////////
+//7. Матричный шифр
 function inverse(m) {
     [
       [a, b, c],
@@ -321,15 +305,11 @@ function inverse(m) {
       [z, g * b - a * h, a * e - d * b]
     ].map(r => r.map(v => v /= det)) : null;
   }
-  
   function writeout(arr) {
     return JSON.stringify(arr, function(key, val) {
       return val.toFixed ? Number(val.toFixed(4)) : val;
     });
   }
-
-
-
 function matrShif(){
     var matr = [[3,1,2],
                 [4,2,3],
@@ -338,10 +318,6 @@ function matrShif(){
     var matrnum =[[0],
                   [0],
                   [0]];
-
-    
-    
-
     let alf = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
     let text = "абвгд";
     let textnew = ''; 
@@ -356,11 +332,8 @@ function matrShif(){
     if(det==0){
         console.log('определитель равен нулю');
         return 0;
-        
     }
     if(code == 'code'){
-
-        
         if(text.length % 3 != 0){
             while(text.length%3 !=0){
                 text += 'ф';
@@ -381,7 +354,6 @@ function matrShif(){
             textnew += matr[2][0] * matrnum[0][0] + matr[2][1] * matrnum[1][0] + matr[2][2] * matrnum[2][0];
             textnew += ' ';
         }
-
         console.log(textnew);
     };
      if(code=='decode'){
@@ -398,26 +370,13 @@ function matrShif(){
             
         };
         //console.log(matrnew[0][0] * matrnum[0][0] + matrnew[0][1] * matrnum[1][0] + matrnew[0][2] * matrnum[2][0]);
-        
-
-
-
         console.log(textza);
-
      }
-    //////////////////////////////////////////////Конец Матричного Шифра/////////////////////////////////////////////////////////
-
-
-
-
-
-
 };
 
-//matrShif();
+//matrShif(); /*Вызов матричного шифра */
 
-
-////////////////////////////////////////ПЛЕЙФЕР//////////////////////////////////////////////////////////////
+//8. Шифр Плэйфера
 function plf(matr,str){
     let str_new = '';
     // let str = 'крот';
@@ -501,11 +460,7 @@ function plf(matr,str){
     console.log(matr[3]);
     console.log(matr[4]);
     console.log(str_new);
-
-
-
 }
-
 function otbor(key,cou,size){
     let alf = "абвгдежзиклмнопрстуфхцчшщыьэюя";
     let csh = 0;
@@ -525,7 +480,6 @@ function otbor(key,cou,size){
         }
     }
 }
-
 function test(a){
     for(let i = 0;i<a.length-1; i++){
 
@@ -533,15 +487,12 @@ function test(a){
             var strFirst = a.slice(0,i+1); 
             var strLast = a.slice(-i);
             strFirst += 'ф' + strLast;
-            
         }
     }
     return{
         strFirst
     }
 }
-
-
 function charCheck(str)
 {
 for(let i=0; i < str.length; i++)
@@ -554,8 +505,6 @@ for(let i=0; i < str.length; i++)
   return true;
 
 } 
-
-
 function plaifer(key,str){
     let alf = "абвгдежзиклмнопрстуфхцчшщыьэюя";
     //let str = 'крот';
@@ -623,11 +572,11 @@ function plaifer(key,str){
 
 }
 
-plaifer('сентябрь','наппа');
+plaifer('сентябрь','наппа');/*Вызов функции Плэйфера*/
 
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
