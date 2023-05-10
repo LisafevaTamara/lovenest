@@ -1,3 +1,4 @@
+//алфавит
 function give_num(h1){
     let alf = ['а','б','в','г','д','е','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я'];
     for (let i = 0; i<alf.length; i++){
@@ -5,46 +6,32 @@ function give_num(h1){
             h1 = i+1;
             return h1;
         }
-    
     }
-    
-
 }
-
-//pod_matr.push(give_num(key[i]));
-//Создание пустышки по количеству букв
-
+//создание таблички
 function built_table(key,text){ // Этап 1
     let alf = "абвгдежзиклмнопрстуфхцчшщыьэюя";
-    //let key = 'хитро';
-    //let text = 'ктообжегсяя'
     var matr = [];
     var mass = []
     var pod_matr = [];
     let num = 7;
     for (let i = 0; i<key.length; i++){
         pod_matr.push('');
-        
     }
     for(let i = 0;i<key.length;i++){
         mass.push(give_num(key[i]));
     }
     matr.push(mass)
     let columns = Math.floor(text.length/key.length);
-
     if(columns < (text.length/key.length)){ //исправленно (не хватало одной строки)
         columns++;
     }
-
     for(let i =0; i<columns; i++){
         matr.push(Array.from(pod_matr))
     }
     return matr;
 }
-
-//built_table('абзгянп','ктообжегсяя');
-
-
+//внесение текста в таблицу
 function insert_text(text,key){ // Этап 2
     var matr = built_table(key,text);
     let count = 0;
@@ -53,32 +40,24 @@ function insert_text(text,key){ // Этап 2
     for(let i = 1;i<matr.length; i++){
         for(let j = 0; j<matr[x].length;j++){
             if(count==text.length){
-                
                 return matr;
             }
             matr[i][j] = text[count];
             count++;
-
         }
         x++;
     }
-    
     console.log(matr[0])
     console.log(matr[1])
     console.log(matr[2])
-
     return matr;
 }
 
-
-var matr = insert_text('ктообжегсяя','бета');
+var matr = insert_text('ктообжегсяя','мама');
 for(let i = 0;i<matr.length;i++){
     console.log(matr[i])
 }
 //function shift(text,key){ //Этап 3
-
-
-
 //}
 
 function full_and_nefull(matr){ //нахождение количества маленьких столбцов
@@ -93,11 +72,7 @@ function full_and_nefull(matr){ //нахождение количества ма
 
 console.log(full_and_nefull(matr));
 //Зашифровка
-function zashift(text,key,matr){
-
-}
-
-
+function zashift(text,key,matr){}
 //Расшифровка
 function shift(text,key,code){ //Этап 4
     let textnew = '';
@@ -119,7 +94,6 @@ function shift(text,key,code){ //Этап 4
                 }
                 textnew += matr[i][j];
             }
-
         }
         console.log(textnew);
     }
@@ -143,7 +117,6 @@ function shift(text,key,code){ //Этап 4
                 break;
             };
         };
-
         for(let i= 1; i<matrnew.length; i++ ){
             console.log(matrnew[i])
         }
@@ -152,16 +125,11 @@ function shift(text,key,code){ //Этап 4
             for(let j = 0; j<matrnew[0].length; j++){
                 textnew += matrnew[i][j];
             }
-            
         }
         console.log(textnew)
     }
-    
-        
-    
-
 }
 
 // var matrnew = shift('ожскоеятбг','бета',matr);
-shift('огкбстжяоея','бета','decode');
+shift('тжяогкбсое','мама','decode');
 //огкбстжяоея

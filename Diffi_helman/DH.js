@@ -6,7 +6,7 @@ function DH(a,n,k){
         return 0;
     }
     if (k<2 || k>n-1){
-        console.log('K не соответствует требованиям 21 <= K <= n-1 )')
+        console.log('K не соответствует требованиям 2 <= K <= n-1 )')
         return 0;
     }
     let y = (a ** k)%n; // открытый ключ
@@ -17,10 +17,10 @@ function DH(a,n,k){
 
 }
 console.log('Пользователь A')
-let ya = DH(3,47,8);
+let ya = DH(5,19,11);
 ////////////a.n..k
 console.log('Пользователь B')
-let yb = DH(3,47,6);
+let yb = DH(5,19,9);
 ////////////a.n..k
 
 
@@ -53,7 +53,7 @@ function DH_prov(ya, yb, ka, kb, na, aa,){
     else{
         a += 'X '
     } 
-    if (flagA1 == true && flagA2 == true){
+    if (flagA1 == true && flagA2 == true, provA1 != 1, provB1 != 1){
         console.log('Обе проверки выполнены успешно!')
         console.log(a);
         console.log('Проверка 1: ', 'A = ', provA1, 'B = ', provB1);
