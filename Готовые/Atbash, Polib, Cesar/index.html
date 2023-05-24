@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+<body>
+    <main>
+
+        <div>
+            <h1>Атбаш</h1>
+            <button onclick="atbash()">Шифровать</button>
+            <input type="text" class="123" id = "atbashin" value="" placeholder="Текст"></input>
+            <div id="divatbash"></div>
+            <script src="atbash.js"></script>
+        </div>
+
+        <div>
+            <h1>Цезарь</h1>
+            <button onclick="cesar()">Шифровать</button>
+            <input type="text" class="333" id = "textid" value="" placeholder="Текст"></input>
+            <input type="number" class="333" id = "shiftid" value="" placeholder="Число сдвигов"></input>
+            <div id="divcesar"></div>
+            
+
+            <form id="cesarid">
+                <input type="radio" id="contactChoice1"
+                 name="cesarrad" value="encode">
+                <label for="contactChoice1">Зашифровать</label>
+            
+                <input type="radio" id="contactChoice2"
+                 name="cesarrad" value="decode">
+                <label for="contactChoice2">Расшифровать</label>
+            </form>
+            <script src="cesar.js"></script>
+        </div>
+
+        <div>
+            <h1>Квадрат Полибия</h1>
+            <button onclick="polib()">Шифровать</button>
+            <input type="text" class="333" id = "textpolibid" value="" placeholder="Текст"></input>
+            <div id="divpolib"></div>
+            
+
+            <form id="polibid">
+                <input type="radio" id="polib1"
+                 name="polibrad" value="encode">
+                <label for="polib1">Зашифровать</label>
+            
+                <input type="radio" id="polib2"
+                 name="polibrad" value="decode">
+                <label for="polib2">Расшифровать</label>
+            </form>
+            <script src="polib.js"></script>
+        </div>
+
+
+
+
+    </main>
+    
+</body>
+</html>
