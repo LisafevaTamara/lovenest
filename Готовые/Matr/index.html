@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h3>Матричный шифр</h3>
+        <button onclick="matrShif()">Шифровать</button>
+        <input style = 'width: 800px' type="text" class="matr" id = "matrid" value="" placeholder="Текст"></input>
+        
+        <h3>Задайте матрицу</h3>
+       
+        <div>
+            <input style = 'width: 30px' type="text" class="matr" id = "11id" value="" ></input>
+            <input style = 'width: 30px' type="text" class="matr" id = "12id" value="" ></input>
+            <input style = 'width: 30px' type="text" class="matr" id = "13id" value="" ></input>
+        </div>
+        <div>
+            <input style = 'width: 30px' type="text" class="matr" id = "21id" value="" ></input>
+            <input style = 'width: 30px' type="text" class="matr" id = "22id" value="" ></input>
+            <input style = 'width: 30px' type="text" class="123" id = "23id" value="" ></input>
+        </div>
+        <div>
+            <input style = 'width: 30px' type="text" class="matr" id = "31id" value="" ></input>
+            <input style = 'width: 30px' type="text" class="matr" id = "32id" value="" ></input>
+            <input style = 'width: 30px' type="text" class="matr" id = "33id" value="" ></input>
+        </div>
+        
+        
+
+        <form id="matrradid">
+            <input type="radio" id="matr1"
+             name="matrrad" value="encode">
+            <label for="matr1">Зашифровать</label>
+        
+            <input type="radio" id="matr2"
+             name="matrrad" value="decode">
+            <label for="matr2">Расшифровать</label>
+        </form>
+        <h2 id="divmatr"></h2>
+        <script src="matr.js"></script>
+    </main>
+    
+</body>
+</html>

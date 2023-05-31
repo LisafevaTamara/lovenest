@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>Шифр Плейфера</h1>
+        <button onclick="plaifer()">Шифровать</button>
+        <input style = 'width: 800px' type="text" class="123" id = "textid" value="" placeholder="Текст"></input>
+        <input type="text" class="123" id = "keyid" value="" placeholder="ключ"></input>
+
+        <form id="plaifid">
+            <input type="radio" id="contactChoice1"
+             name="rad" value="encode">
+            <label for="contactChoice1">Зашифровать</label>
+        
+            <input type="radio" id="contactChoice2"
+             name="rad" value="decode">
+            <label for="contactChoice2">Расшифровать</label>
+        </form>
+
+        <h2  style= 'word-wrap: break-word;' id="div"></h2>
+
+
+
+
+        <script src="plaifer.js"></script>
+    </main>
+    
+</body>
+</html>
