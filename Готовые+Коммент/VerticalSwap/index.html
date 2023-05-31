@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h3>Вертикальная перестановка</h3>
+        <button onclick="shift()">Шифровать</button>
+        <input style = 'width: 800px' type="text" class="matr" id = "shiftrid" value="" placeholder="Текст"></input>
+        <input type="text" class="333" id = "keyid" value="" placeholder="Ключ"></input>
+        
+        
+
+        <form id="matrradid">
+            <input type="radio" id="shif1"
+             name="matrrad" value="encode">
+            <label for="shif1">Зашифровать</label>
+        
+            <input type="radio" id="shif2"
+             name="matrrad" value="decode">
+            <label for="shif2">Расшифровать</label>
+        </form>
+        <h2  style= 'word-wrap: break-word;' id="divmatr"></h2>
+        <script src="VerticalSwap.js"></script>
+    </main>
+    
+</body>
+</html>

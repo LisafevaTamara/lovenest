@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div>
+            <h3>RSA</h3>
+            <button onclick="RSA()">Шифровать</button>
+            <div>
+                <input  style = 'width: 800px' type="text" class="gost" id = "1textid" value="" placeholder="Текст"></input>
+            </div>
+            <div>
+                <input style = 'width: 50px' type="number" class="matr" id = "1pid" value="" placeholder="p"></input>
+                <input style = 'width: 50px' type="number" class="matr" id = "1qid" value="" placeholder="q"></input>
+                <input style = 'width: 50px' type="number" class="matr" id = "1eid" value="" placeholder="e"></input>
+
+            <form id="rsaid">
+                <input type="radio" id="contactChoice1"
+                    name="rad" value="encode">
+                <label for="contactChoice1">Зашифровать</label>
+            
+                <input type="radio" id="contactChoice2"
+                    name="rad" value="decode">
+                <label for="contactChoice2">Расшифровать</label>
+            </form>
+            
+                
+            <div id="div1"></div>
+            
+            <div id="div3"></div>
+            <div id="div4"></div>
+            <div id="div5"></div>
+        </div>
+        <h3 style= 'word-wrap: break-word;' id="div2"></h3>
+        <div>
+            <h3>RSA цифровая подпись</h3>
+            <button onclick="hash_pod()">Шифровать</button>
+            <div>
+                <input  style = 'width: 800px' type="text" class="gost" id = "2textid" value="" placeholder="Текст"></input>
+            </div>
+            <div>
+                <input style = 'width: 50px' type="number" class="matr" id = "2pid" value="" placeholder="p"></input>
+                <input style = 'width: 50px' type="number" class="matr" id = "2qid" value="" placeholder="q"></input>
+                <input style = 'width: 50px' type="number" class="matr" id = "2eid" value="" placeholder="e"></input>
+            </div>
+            
+        
+            <div id="div21"></div>
+            <div id="div22"></div>
+            <div id="div23"></div>
+        </div>
+        </div>
+        <script src="RSA_podpis.js"></script>
+        <script src="RSA.js"></script>
+    </main>
+    
+</body>
+</html>
