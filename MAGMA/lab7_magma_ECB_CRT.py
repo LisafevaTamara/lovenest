@@ -86,71 +86,6 @@ def change_rightside(right_side_message, change, change_list): # Проход п
     return result
 
 
-def gost_gamm(): # МАГМА в режиме гаммирования
-    message = input('Введите сообщение: ').lower() # Ввод открытого текста
-    message = message.encode("utf-8").hex() # Перевод текста в шестнадцатеричный вид
-    if len(message) % 64 != 0: # Дополнение текста до длины, кратной 64
-        ostatok = 64 - (len(message) % 64)
-        while len(message) % 64 != 0:
-            message += 'f'
-    key = input('Введите ключ: ').lower() # Ввод ключа
-    C = input('Введите C: ').lower() # Ввод C
-    synch = input('Введите синхропосылку: ').lower() # Ввод синхропосылки
-
-    result = ''
-
-    change_list = c_block[::-1] # Отзеркаливание S-блока к виду ГОСТа
-
-    array_message = []
-    for i in range(0, len(message), 16): # Разделение сообщение на блоки по 64 бита
-        array_message.append(message[i:i+16])
-    
-    array_key = []
-    for i in range(0, len(key), 8): # Разделение ключа на подключи по 32 бита
-        array_key.append(key[i:i+8])
-
-    array_keys = []
-    array_keys = array_key * 3 + array_key[::-1] # Получение 32 подключей
-    
-    array_c = []
-    for i in range(0, len(C), 16): # Разделение C на 4 блока по 64 бита
-        array_c.append(C[i:i+16])
-
-    
-
-    result_list = []
-    
-    # Шифрование
-    for i in range(len(array_message)):
-        c_left = array_c[i%4][:8]
-        c_right = array_c[i%4][8:]
-        synch_edit = hex(int(synch, 16) + i)[2:]
-        synch_edit = change(synch_edit, array_keys, change_list) # Проход по Сети Фейстеля
-        N3 = hex((int(synch_edit[:8], 16) + int(c_right, 16))%(2**32))[2:].zfill(8)
-        N4 = hex((int(synch_edit[8:], 16) + int(c_left, 16))%(2**32 - 1))[2:].zfill(8)
-        N34 = N3 + N4
-        N34 = change(N34, array_keys, change_list) # Проход по Сети Фейстеля
-        array_message[i] = hex((int(N34, 16))^int(array_message[i], 16))[2:].zfill(16)
-
-    print('Encrypt:' + ''.join(array_message)) # Вывод результата шифровки
-
-    # Расшифровка
-    for i in range(len(array_message)):
-        c_left = array_c[i%4][:8]
-        c_right = array_c[i%4][8:]
-        synch_edit = hex(int(synch, 16) + i)[2:]
-        synch_edit = change(synch_edit, array_keys, change_list) # Проход по Сети Фейстеля
-        N3 = hex((int(synch_edit[:8], 16) + int(c_right, 16))%(2**32))[2:].zfill(8)
-        N4 = hex((int(synch_edit[8:], 16) + int(c_left, 16))%(2**32 - 1))[2:].zfill(8)
-        N34 = N3 + N4
-        N34 = change(N34, array_keys, change_list) # Проход по Сети Фейстеля
-        array_message[i] = hex((int(N34, 16))^int(array_message[i], 16))[2:].zfill(16)
-    message = ''.join(array_message)
-    for i in range(ostatok): # Удаление возможно добавленных символов при шифровке
-        message = message[:-1]
-    message = codecs.decode(message, "hex") # Перевод из hex-вида в текстовый
-    print('Decrypt:' + str(message, 'utf-8')) # Вывод результата расшифровки
-
 
 def change(array_message, array_keys,change_list): # Сеть фейстеля
     for j in range(31):
@@ -174,18 +109,7 @@ def change(array_message, array_keys,change_list): # Сеть фейстеля
 def main():
     print('Магма в замене')
     endmsg()
-    #gost()
-    # 92def06b3c130a59 - soob
-    # йрвдмлйвидйаоймавлйиадйийлвмдйалмцлйпвщйрдрмлйилйидйайлдййаьрийл - P
-    # ffeeddccbbaa99887766554433221100f0f1f2f3f4f5f6f7f8f9fafbfcfdfeff - key
     
-    print('Магма в гаммировании')
-    gost_gamm()
-    # йрвдмлйвидйаоймавлйиадйийлвмдйалмцлйпвщйрдрмлйилйидйайлдййаьрийл - P
-    # 1234567800000000 - синхропосылка
-    # 4e98110c97b7b93c3e250d93d6e85d69136d868807b2dbef568eb680ab52a12d - C
-    # ffeeddccbbaa99887766554433221100f0f1f2f3f4f5f6f7f8f9fafbfcfdfeff - key
-
 
 if __name__ == '__main__':
     main()
